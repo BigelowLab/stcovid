@@ -50,7 +50,9 @@ fetch_census_estimates <- function(state = "all",
 
   stateabb <- st_name2abb(state[1])
   get_county_name <- function(NAME){
-    sapply(strsplit(NAME, " ", fixed = TRUE), "[[", 1)
+    gsub(" County", "",
+         sapply(strsplit(NAME, ",", fixed = TRUE), "[[", 1),
+         fixed = TRUE)
   }
   x <- suppressMessages(tidycensus::get_estimates(
                             geography = 'county',

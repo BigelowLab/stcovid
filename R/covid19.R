@@ -8,7 +8,18 @@ merge_census <- function(x = read_datahub(state = "Maine",
                                          date = as.Date("2020-04-20")),
                                pop = read_census(state = "Maine")){
   if (nrow(x) == 0) return(x)
-  if (nrow(x) != nrow(pop)) stop("x and pop must have same number of rows")
+
+  if (nrow(pop) < nrow(x)){
+    ix <- x$County %in% pop$County
+    x <- x %>%
+      dplyr::filter(ix)
+  }
+  if (nrow(x) < nrow(pop)){
+    ix <- pop$County %in% x$County
+    pop <- pop %>%
+      dplyr::filter(ix)
+  }
+
   x2 <- x %>%
     dplyr::arrange(.data$County) %>%
     dplyr::select(-.data$State, -.data$County)

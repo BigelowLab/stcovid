@@ -39,12 +39,6 @@ server <- function(input, output) {
   output$plot <- renderPlot({
     x <- filter_datahub(input$state, input$date)
     pop <- stcovid::read_census(input$state)
-    if (nrow(x) != nrow(pop)){
-      msg <- sprintf("%s data mismatch: %i (datahub) %i (census)",
-                     input$state, nrow(x), nrow(pop))
-      warning(msg)
-      return()
-    }
     x <- stcovid::merge_census(x, pop)
     gg <- stcovid::draw_confirmed(x)
     print(gg[[1]] + gg[[2]])

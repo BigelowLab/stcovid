@@ -1,0 +1,25 @@
+Package: stcovid
+Title: stcovid - state and county centric data from COVID19 data hub
+Description: COVID-19 cases viewer at county level by US state.
+URL: https://github.com/BigelowLab/stcovid
+Version: 0.1
+Depends:
+    R (>= 3.0)
+Imports:
+    utils,
+    datasets,
+    tidycensus,
+    sf,
+    rvest,
+    xml2,
+    rlang,
+    dplyr,
+    readr,
+    ggplot2,
+    patchwork,
+    COVID19
+Maintainer: Ben Tupper <btupper@bigelow.org>
+Author: Ben Tupper <btupper@bigelow.org>
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.1.0

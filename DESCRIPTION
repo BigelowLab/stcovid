@@ -10,13 +10,11 @@ Imports:
     datasets,
     tidycensus,
     sf,
-    rvest,
-    xml2,
     rlang,
     dplyr,
     readr,
     ggplot2,
-    patchwork,
+    ggthemes,
     COVID19
 Maintainer: Ben Tupper <btupper@bigelow.org>
 Author: Ben Tupper <btupper@bigelow.org>

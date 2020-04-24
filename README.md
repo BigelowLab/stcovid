@@ -14,10 +14,6 @@ While this has been developed for [Computational Oceanography Lab](https://www.b
  
  + [sf](https://CRAN.R-project.org/package=sf)
  
- + [rvest](https://CRAN.R-project.org/package=rvest)
- 
- + [xml2](https://CRAN.R-project.org/package=xml2)
- 
  + [rlang](https://CRAN.R-project.org/package=rlang)
  
  + [dplyr](https://CRAN.R-project.org/package=dplyr)
@@ -118,7 +114,7 @@ Make a graphic that shows cumulative counts and density by county.
 
 ```
 library(patchwork)
-gg <- stcovid::draw_confirmed(x)
+gg <- stcovid::draw_statemap(x)
 print(gg[[1]] + gg[[2]])
 ```
 ![](inst/2020-04-21.png)

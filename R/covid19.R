@@ -118,7 +118,8 @@ fetch_datahub <- function(simplify = TRUE,
         Confirmed = .data$confirmed,
         Recovered = .data$recovered,
         Hospitalizations = .data$hosp,
-        Deaths = .data$deaths)
+        Deaths = .data$deaths) %>%
+      dplyr::mutate(date = as.Date(.data$date))
     if (save_file){
       x <- readr::write_csv(x, file.path(path, "datahub.csv"))
     }
